@@ -1,42 +1,66 @@
-# Slim Framework 4 Skeleton Application
+# MTEX Mock API
 
-[![Coverage Status](https://coveralls.io/repos/github/slimphp/Slim-Skeleton/badge.svg?branch=master)](https://coveralls.io/github/slimphp/Slim-Skeleton?branch=master)
+Simple REST API providing sample JSON data for testing and prototyping.
 
-Use this skeleton application to quickly setup and start working on a new Slim Framework 4 application. This application uses the latest Slim 4 with Slim PSR-7 implementation and PHP-DI container implementation. It also uses the Monolog logger.
-
-This skeleton application was built for Composer. This makes setting up a new Slim Framework application quick and easy.
-
-## Install the Application
-
-Run this command from the directory in which you want to install your new Slim Framework application. You will require PHP 7.4 or newer.
+## Installation
 
 ```bash
-composer create-project slim/slim-skeleton [my-app-name]
+composer install
 ```
 
-Replace `[my-app-name]` with the desired directory name for your new application. You'll want to:
-
-* Point your virtual host document root to your new application's `public/` directory.
-* Ensure `logs/` is web writable.
-
-To run the application in development, you can run these commands 
+## Local Development
 
 ```bash
-cd [my-app-name]
-composer start
+php -S localhost:8000 -t public
 ```
 
-Or you can use `docker-compose` to run the app with `docker`, so you can run these commands:
+Visit `http://localhost:8000` to see the API documentation.
+
+## Endpoints
+
+### Documentation
+
+- `GET /` - API documentation
+
+### Users
+
+- `GET /users` - List all users
+- `GET /users/{id}` - Get user by ID
+
+### Posts
+
+- `GET /posts` - List all posts
+- `GET /posts/{id}` - Get post by ID
+
+### Products
+
+- `GET /products` - List all products
+- `GET /products/{id}` - Get product by ID
+
+## Example Requests
+
 ```bash
-cd [my-app-name]
-docker-compose up -d
-```
-After that, open `http://localhost:8080` in your browser.
-
-Run this command in the application directory to run the test suite
-
-```bash
-composer test
+curl https://mock.mtex.dev/users
+curl https://mock.mtex.dev/users/1
+curl https://mock.mtex.dev/posts
+curl https://mock.mtex.dev/products/2
 ```
 
-That's it! Now go build something cool.
+## Features
+
+- [x] RESTful API design
+- [x] JSON responses
+- [x] CORS enabled
+- [x] Error handling
+- [x] Self-documenting
+- [x] No database required
+
+## Tech Stack
+
+- PHP 8.1+
+- Slim Framework 4
+- PSR-7 HTTP Messages
+
+## License
+
+MIT
